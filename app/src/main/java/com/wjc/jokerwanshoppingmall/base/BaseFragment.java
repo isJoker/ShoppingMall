@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by ${万嘉诚} on 2016/11/17.
  * WeChat：wjc398556712
@@ -22,13 +24,14 @@ public abstract class BaseFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
-
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return initView();
+        View view = View.inflate(mContext,getViewLayoutId(),null);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
     @Override
@@ -38,15 +41,21 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /**
-     * 有子类实现，实现特有效果
+     * 获取子类布局id
      * @return
      */
-    public abstract View initView();
+    public abstract int getViewLayoutId() ;
 
     /**
      * 初始化数据
      */
     public void initData() {
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }

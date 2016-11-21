@@ -1,7 +1,5 @@
 package com.wjc.jokerwanshoppingmall.community.fragment;
 
-import android.view.View;
-
 import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.base.BaseFragment;
 
@@ -12,9 +10,9 @@ import com.wjc.jokerwanshoppingmall.base.BaseFragment;
  */
 
 public class CommunityFragment extends BaseFragment{
+
     @Override
-    public View initView() {
-        View view = View.inflate(mContext, R.layout.fragment_community,null);
-        return view;
+    public int getViewLayoutId() {
+        return R.layout.fragment_community;
     }
 }
