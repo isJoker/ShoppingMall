@@ -118,12 +118,13 @@ public class TypeRightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         public void setData(final List<TypeBean.ResultBean.HotProductListBean> hot_product_list) {
             for (i = 0; i < hot_product_list.size(); i++) {
+
                 LinearLayout.LayoutParams lineLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 final LinearLayout myLinear = new LinearLayout(mContext);
                 lineLp.setMargins(DensityUtil.dip2px(mContext, 5), 0, DensityUtil.dip2px(mContext, 5), DensityUtil.dip2px(mContext, 20));
                 myLinear.setOrientation(LinearLayout.VERTICAL);
 
-                myLinear.setTag(i);
+                myLinear.setTag(i);//把每个商品的位置传到自己的布局中
 
                 linear.addView(myLinear, lineLp);
 

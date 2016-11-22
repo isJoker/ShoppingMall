@@ -2,6 +2,8 @@ package com.wjc.jokerwanshoppingmall.type.fragment;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -88,7 +90,7 @@ public class ListFragment extends BaseFragment {
                 case 100:
 //                    Toast.makeText(mContext, "http", Toast.LENGTH_SHORT).show();
                     if (response != null) {
-                        processData(response);
+                        processData(response);//得到右边json数据result
                         if (isFirst) {
                             leftAdapter = new TypeLeftAdapter(mContext);
                             lvLeft.setAdapter(leftAdapter);
@@ -99,9 +101,9 @@ public class ListFragment extends BaseFragment {
                         TypeRightAdapter rightAdapter = new TypeRightAdapter(mContext, result);
                         rvRight.setAdapter(rightAdapter);
 
-                        GridLayoutManager manager = new GridLayoutManager(getActivity(), 3);
+                        GridLayoutManager manager = new GridLayoutManager(getActivity(), 3);//设置GridView为三列
 
-                        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {//？
                             @Override
                             public int getSpanSize(int position) {
                                 if (position == 0) {
@@ -123,8 +125,32 @@ public class ListFragment extends BaseFragment {
         }
     }
 
-    private void initListener(TypeLeftAdapter leftAdapter) {
+    private void initListener(final TypeLeftAdapter leftAdapter) {
+        //点击监听
+        lvLeft.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                leftAdapter.changeSelected(position);//刷新
+                if (position != 0) {
+                    isFirst = false;
+                }
+                getDataFromNet(urls[position]);
+                leftAdapter.notifyDataSetChanged();
+            }
+        });
 
+        //选中监听
+        lvLeft.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                leftAdapter.changeSelected(position);//刷新
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     private void processData(String json) {
@@ -132,5 +158,4 @@ public class ListFragment extends BaseFragment {
         TypeBean typeBean = gson.fromJson(json, TypeBean.class);
         result = typeBean.getResult();
     }
-
 }

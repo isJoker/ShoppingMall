@@ -66,8 +66,8 @@ public class TypeLeftAdapter extends BaseAdapter{
 
     public void changeSelected(int positon) { //刷新方法
         if (positon != mSelect) {
-            mSelect = positon;
-            notifyDataSetChanged();
+            mSelect = positon;//点击ListView的item时传进来
+            notifyDataSetChanged();//执行onDraw()----->执行getView()
         }
     }
 
