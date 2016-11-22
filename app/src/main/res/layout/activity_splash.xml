@@ -4,7 +4,7 @@
     android:id="@+id/rl_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.wjc.jokerwanshoppingmall.SplashActivity"
+    tools:context="com.wjc.jokerwanshoppingmall.app.SplashActivity"
     android:background="@drawable/splash_bg">
 
     <ImageView

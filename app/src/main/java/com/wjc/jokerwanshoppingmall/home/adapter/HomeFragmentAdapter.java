@@ -197,7 +197,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             tv_more_recommend = (TextView) itemView.findViewById(R.id.tv_more_recommend);
             gv_recommend = (GridView) itemView.findViewById(R.id.gv_recommend);
 
-
         }
 
         public void setData(final List<ResultBeanData.ResultBean.RecommendInfoBean> recommend_info) {
@@ -269,7 +268,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             adapter = new SeckillRecyclerViewAdapter(mContext,seckill_info.getList());
             rv_seckill.setAdapter(adapter);
 
-            //设置布局管理器
+            //设置布局管理器（RecyclerView必须要设置的，设置是横向滑动还是纵向滑动）
             rv_seckill.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL,false));
             //设置item的点击事件
             adapter.setOnSeckillRecyclerView(new SeckillRecyclerViewAdapter.OnSeckillRecyclerView() {
@@ -298,6 +297,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         }
     }
 
+    //活动类型
     class ActViewHolder extends RecyclerView.ViewHolder {
         private Context mContext;
         private ViewPager act_viewpager;
@@ -310,9 +310,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
         public void setData(final List<ResultBeanData.ResultBean.ActInfoBean> act_info) {
             act_viewpager.setPageMargin(20);
-            act_viewpager.setOffscreenPageLimit(3);//>=3
+            act_viewpager.setOffscreenPageLimit(3);//里面写的数值要>=3
 
-      //setPageTransformer 决定动画效果
+            //setPageTransformer 决定动画效果
             act_viewpager.setPageTransformer(true, new
                     ScaleInTransformer());
             //1.有数据了
@@ -369,6 +369,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         }
     }
 
+    //频道
     class ChannelViewHolder extends RecyclerView.ViewHolder {
         private Context mContext;
         private GridView gv_channel;

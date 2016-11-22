@@ -62,23 +62,40 @@ public class MainActivity extends FragmentActivity {
                     case  R.id.rb_home:
                         position = 0;
 
-
+                        typeFragment.hideFragment();
                         break;
                     case  R.id.rb_type:
                         position = 1;
+
+                        //初始化数据
+                        int currentTab = typeFragment.getCurrentTab();
+                        if (currentTab == 0) {
+                            if (typeFragment.listFragment != null) {
+                                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                                transaction.show(typeFragment.listFragment).commit();
+                            }
+                        } else {
+                            if (typeFragment.tagFragment != null) {
+                                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                                transaction.show(typeFragment.tagFragment).commit();
+                            }
+                        }
 
                         break;
                     case  R.id.rb_community:
                         position = 2;
 
+                        typeFragment.hideFragment();
                         break;
                     case  R.id.rb_cart:
                         position = 3;
 
+                        typeFragment.hideFragment();
                         break;
                     case  R.id.rb_user:
                         position = 4;
 
+                        typeFragment.hideFragment();
                         break;
                 }
                 BaseFragment baseFragment = getFragment(position);

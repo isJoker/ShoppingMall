@@ -1,4 +1,4 @@
-package com.wjc.jokerwanshoppingmall;
+package com.wjc.jokerwanshoppingmall.app;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 
-import com.wjc.jokerwanshoppingmall.app.MainActivity;
+import com.wjc.jokerwanshoppingmall.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

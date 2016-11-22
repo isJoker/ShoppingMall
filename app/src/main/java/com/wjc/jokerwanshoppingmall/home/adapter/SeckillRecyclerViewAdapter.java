@@ -66,6 +66,7 @@ public class SeckillRecyclerViewAdapter extends RecyclerView.Adapter<SeckillRecy
             tv_cover_price = (TextView) itemView.findViewById(R.id.tv_cover_price);
             tv_origin_price = (TextView) itemView.findViewById(R.id.tv_origin_price);
 
+            //将某个具体item的点击事件暴露出去
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
