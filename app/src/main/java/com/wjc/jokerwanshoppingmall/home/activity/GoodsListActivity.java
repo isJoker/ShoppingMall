@@ -37,6 +37,9 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Request;
 
+/**
+ * RecommendGridView点进去之后跳转的页面
+ */
 public class GoodsListActivity extends Activity implements View.OnClickListener {
 
     private LinearLayout llGoodsListHead;
@@ -237,8 +240,6 @@ public class GoodsListActivity extends Activity implements View.OnClickListener 
             ib_drawer_layout_back.setVisibility(View.VISIBLE);
             showSelectorLayout();
         }
-
-
     }
 
 
@@ -260,7 +261,7 @@ public class GoodsListActivity extends Activity implements View.OnClickListener 
     }
 
     private void initListener() {
-       /* listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Toast.makeText(GoodsListActivity.this, "childPosition" + childPosition, Toast.LENGTH_SHORT).show();
@@ -269,23 +270,23 @@ public class GoodsListActivity extends Activity implements View.OnClickListener 
                 return false;
             }
         });
+//
+//        listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+//            @Override
+//            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+//                Toast.makeText(GoodsListActivity.this, "groupPosition" + groupPosition, Toast.LENGTH_SHORT).show();
+//                groupP = groupPosition;
+//                adapter.notifyDataSetChanged();
+//                return false;
+//            }
+//        });
 
-        listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                Toast.makeText(GoodsListActivity.this, "groupPosition" + groupPosition, Toast.LENGTH_SHORT).show();
-                groupP = groupPosition;
-                adapter.notifyDataSetChanged();
-                return false;
-            }
-        });
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(GoodsListActivity.this, "position---" + position, Toast.LENGTH_SHORT).show();
-            }
-        });*/
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(GoodsListActivity.this, "position---" + position, Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
 

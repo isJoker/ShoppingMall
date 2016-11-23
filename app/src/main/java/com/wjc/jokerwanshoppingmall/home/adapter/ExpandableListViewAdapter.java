@@ -18,6 +18,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2016/10/9.
+ * 可扩展的ListView的适配器
  */
 public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
     private Context context;

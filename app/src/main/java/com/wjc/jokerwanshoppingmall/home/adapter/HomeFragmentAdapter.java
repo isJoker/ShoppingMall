@@ -24,7 +24,6 @@ import com.wjc.jokerwanshoppingmall.home.activity.GoodsListActivity;
 import com.wjc.jokerwanshoppingmall.home.bean.GoodsBean;
 import com.wjc.jokerwanshoppingmall.home.bean.ResultBean;
 import com.wjc.jokerwanshoppingmall.utils.Constants;
-import com.wjc.jokerwanshoppingmall.utils.LogUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -69,7 +68,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
      * 热卖
      */
     public static final int HOT = 5;
-    private static final String GOODS_BEAN = "goodsBean";
+    private static final String GOODS_BEAN = "goods_bean";
     /**
      * 用来初始化布局
      */
@@ -173,7 +172,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             gv_hot.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
                     //热卖商品信息类
                     ResultBean.HotInfoBean hotInfoBean = hot_info.get(position);
                     //商品信息类
@@ -213,7 +211,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             gv_recommend.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
                     ResultBean.RecommendInfoBean recommendInfoBean = recommend_info.get(position);
 
                     GoodsBean goodsBean = new GoodsBean();
@@ -279,7 +276,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             adapter.setOnSeckillRecyclerView(new SeckillRecyclerViewAdapter.OnSeckillRecyclerView() {
                 @Override
                 public void onItemClick(int position) {
-                    Toast.makeText(mContext, "秒杀" + position, Toast.LENGTH_SHORT).show();
 
                     ResultBean.SeckillInfoBean.ListBean listBean = seckill_info.getList().get(position);
 
@@ -389,7 +385,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             gv_channel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView parent, View view, int position, long id) {
-                    Toast.makeText(mContext, "position" + position, Toast.LENGTH_SHORT).show();
 
                     if (position <= 8) {
                         Intent intent = new Intent(mContext, GoodsListActivity.class);
@@ -451,7 +446,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             banner.setOnBannerClickListener(new OnBannerClickListener() {
                 @Override
                 public void OnBannerClick(int position) {
-                    Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
 
                     if (position - 1 < banner_info.size()) {
                         int option = banner_info.get(position - 1).getOption();
@@ -472,7 +466,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                             name = "【蓝诺】《天下吾双》 剑网3同人本";
                         }
                         String image = banner_info.get(position - 1).getImage();
-                        LogUtil.e("image====================>" + image);
                         GoodsBean goodsBean = new GoodsBean(name, cover_price, image, product_id);
 
                         startGoodsInfoActivity(goodsBean);

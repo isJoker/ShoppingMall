@@ -107,7 +107,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:padding="10dp">
+                            android:padding="10dp"
+                            android:weightSum="1">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -128,52 +129,53 @@
                                 android:text="发货"
                                 android:textColor="#3c3d40" />
 
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="8dp"
-                                android:background="#eeee" />
-
-                            <TextView
-                                android:id="@+id/tv_good_info_style"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:drawableRight="@drawable/home_arrow_right"
-                                android:padding="10dp"
-                                android:text="请选择款式"
-                                android:textColor="#3c3d40" />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="8dp"
-                                android:background="#eeee" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="提示：普通商品享有质量问题7天退货，签收后3个工作日内可换货。其他特殊商品（如手办）的售后以页面说明为准"
-                                android:textColor="#3c3d40" />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="8dp"
-                                android:background="#eeee" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:text="图文详情"
-                                android:textColor="#3c3d40"
-                                android:textSize="15sp" />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#ed3f3f" />
                         </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:background="#eeee" />
+
+                        <TextView
+                            android:id="@+id/tv_good_info_style"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/home_arrow_right"
+                            android:padding="10dp"
+                            android:text="请选择款式"
+                            android:textColor="#3c3d40" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:background="#eeee" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="提示：普通商品享有质量问题7天退货，签收后3个工作日内可换货。其他特殊商品（如手办）的售后以页面说明为准"
+                            android:textColor="#3c3d40" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:background="#eeee" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="图文详情"
+                            android:textColor="#3c3d40"
+                            android:textSize="15sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#ed3f3f" />
+
                     </LinearLayout>
                 </ScrollView>
 
@@ -184,7 +186,7 @@
                     <WebView
                         android:id="@+id/wb_good_info_more"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"></WebView>
+                        android:layout_height="match_parent" />
 
                 </ScrollView>
 
