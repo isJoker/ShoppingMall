@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.wjc.jokerwanshoppingmall.R;
-import com.wjc.jokerwanshoppingmall.home.bean.ResultBeanData;
+import com.wjc.jokerwanshoppingmall.home.bean.ResultBean;
 import com.wjc.jokerwanshoppingmall.utils.Constants;
 
 import java.util.List;
@@ -21,9 +21,9 @@ import java.util.List;
  */
 public class RecommendGridViewAdapter extends BaseAdapter {
     private final Context mContext;
-    private final List<ResultBeanData.ResultBean.RecommendInfoBean> datas;
+    private final List<ResultBean.RecommendInfoBean> datas;
 
-    public RecommendGridViewAdapter(Context mContext, List<ResultBeanData.ResultBean.RecommendInfoBean> recommend_info) {
+    public RecommendGridViewAdapter(Context mContext, List<ResultBean.RecommendInfoBean> recommend_info) {
         this.mContext = mContext;
         this.datas = recommend_info;
     }
@@ -58,7 +58,7 @@ public class RecommendGridViewAdapter extends BaseAdapter {
         }
 
         //根据位置得到对应的数据
-        ResultBeanData.ResultBean.RecommendInfoBean recommendInfoBean = datas.get(position);
+        ResultBean.RecommendInfoBean recommendInfoBean = datas.get(position);
         Glide.with(mContext).load(Constants.BASE_URL_IMAGE+recommendInfoBean.getFigure()).into(viewHolder.iv_recommend);
         viewHolder.tv_name.setText(recommendInfoBean.getName());
         viewHolder.tv_price.setText("￥"+recommendInfoBean.getCover_price());

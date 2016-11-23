@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.wjc.jokerwanshoppingmall.R;
-import com.wjc.jokerwanshoppingmall.home.bean.ResultBeanData;
+import com.wjc.jokerwanshoppingmall.home.bean.ResultBean;
 import com.wjc.jokerwanshoppingmall.utils.Constants;
 
 import java.util.List;
@@ -21,10 +21,10 @@ import java.util.List;
  */
 public class SeckillRecyclerViewAdapter extends RecyclerView.Adapter<SeckillRecyclerViewAdapter.ViewHodler> {
 
-    private final List<ResultBeanData.ResultBean.SeckillInfoBean.ListBean> list;
+    private final List<ResultBean.SeckillInfoBean.ListBean> list;
     private final Context mContext;
 
-    public SeckillRecyclerViewAdapter(Context mContext, List<ResultBeanData.ResultBean.SeckillInfoBean.ListBean> list) {
+    public SeckillRecyclerViewAdapter(Context mContext, List<ResultBean.SeckillInfoBean.ListBean> list) {
         this.list = list;
         this.mContext  = mContext;
 
@@ -39,7 +39,7 @@ public class SeckillRecyclerViewAdapter extends RecyclerView.Adapter<SeckillRecy
     @Override
     public void onBindViewHolder(ViewHodler holder, int position) {
         //1.根据位置得到对应的数据
-        ResultBeanData.ResultBean.SeckillInfoBean.ListBean listBean = list.get(position);
+        ResultBean.SeckillInfoBean.ListBean listBean = list.get(position);
 
         //2.绑定数据
 

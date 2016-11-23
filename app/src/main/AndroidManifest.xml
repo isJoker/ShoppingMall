@@ -37,8 +37,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.MainActivity"
-            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".app.MainActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".app.GoodsInfoActivity"/>
+        <activity android:name=".home.activity.GoodsListActivity"/>
     </application>
 
 </manifest>

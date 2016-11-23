@@ -1,6 +1,7 @@
 package com.wjc.jokerwanshoppingmall.home.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
@@ -18,9 +19,12 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.wjc.jokerwanshoppingmall.R;
+import com.wjc.jokerwanshoppingmall.app.GoodsInfoActivity;
+import com.wjc.jokerwanshoppingmall.home.activity.GoodsListActivity;
 import com.wjc.jokerwanshoppingmall.home.bean.GoodsBean;
-import com.wjc.jokerwanshoppingmall.home.bean.ResultBeanData;
+import com.wjc.jokerwanshoppingmall.home.bean.ResultBean;
 import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.LogUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -74,14 +78,14 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     /**
      * 数据
      */
-    private ResultBeanData.ResultBean resultBean;
+    private ResultBean resultBean;
 
     /**
      * 当前类型
      */
     private int currentType = BANNER;
 
-    public HomeFragmentAdapter(Context mContext, ResultBeanData.ResultBean resultBean) {
+    public HomeFragmentAdapter(Context mContext, ResultBean resultBean) {
         this.mContext = mContext;
         this.resultBean = resultBean;
         mLayoutInflater = LayoutInflater.from(mContext);
@@ -90,6 +94,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     /**
      * 相当于getView 创建ViewHolder部分代码
      * 创建ViewHolder
+     *
      * @param parent
      * @param viewType 当前的类型
      * @return
@@ -97,16 +102,16 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == BANNER) {
-            return new BannerViewHolder(mContext, mLayoutInflater.inflate(R.layout.banner_viewpager, null));
+            return new BannerViewHolder(mContext, mLayoutInflater.inflate(R.layout.banner_viewpager, null), resultBean);
         } else if (viewType == CHANNEL) {
             return new ChannelViewHolder(mContext, mLayoutInflater.inflate(R.layout.channel_item, null));
         } else if (viewType == ACT) {
             return new ActViewHolder(mContext, mLayoutInflater.inflate(R.layout.act_item, null));
-        }else if (viewType == SECKILL) {
+        } else if (viewType == SECKILL) {
             return new SeckillViewHolder(mContext, mLayoutInflater.inflate(R.layout.seckill_item, null));
-        }else if(viewType == RECOMMEND ){
+        } else if (viewType == RECOMMEND) {
             return new RecommendViewHolder(mContext, mLayoutInflater.inflate(R.layout.recommend_item, null));
-        }else if(viewType == HOT){
+        } else if (viewType == HOT) {
             return new HotViewHolder(mContext, mLayoutInflater.inflate(R.layout.hot_item, null));
         }
         return null;
@@ -129,20 +134,20 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         } else if (getItemViewType(position) == ACT) {
             ActViewHolder actViewHolder = (ActViewHolder) holder;
             actViewHolder.setData(resultBean.getAct_info());
-        }else if(getItemViewType(position) == SECKILL){
+        } else if (getItemViewType(position) == SECKILL) {
             SeckillViewHolder seckillViewHolder = (SeckillViewHolder) holder;
             seckillViewHolder.setData(resultBean.getSeckill_info());
-        }else if(getItemViewType(position) == RECOMMEND){
+        } else if (getItemViewType(position) == RECOMMEND) {
             RecommendViewHolder recommendViewHolder = (RecommendViewHolder) holder;
             recommendViewHolder.setData(resultBean.getRecommend_info());
-        }else if(getItemViewType(position)==HOT){
+        } else if (getItemViewType(position) == HOT) {
             HotViewHolder hotViewHolder = (HotViewHolder) holder;
             hotViewHolder.setData(resultBean.getHot_info());
         }
 
     }
 
-    class HotViewHolder extends RecyclerView.ViewHolder{
+    class HotViewHolder extends RecyclerView.ViewHolder {
 
         private final Context mContext;
 
@@ -157,10 +162,10 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
         }
 
-        public void setData(final List<ResultBeanData.ResultBean.HotInfoBean> hot_info) {
+        public void setData(final List<ResultBean.HotInfoBean> hot_info) {
             //1.有数据
             //2.设置GridView的适配器
-            HotGridViewAdapter  adapter = new HotGridViewAdapter(mContext,hot_info);
+            HotGridViewAdapter adapter = new HotGridViewAdapter(mContext, hot_info);
             gv_hot.setAdapter(adapter);
 
 
@@ -168,9 +173,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             gv_hot.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(mContext, "position=="+position, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
                     //热卖商品信息类
-                    ResultBeanData.ResultBean.HotInfoBean hotInfoBean =  hot_info.get(position);
+                    ResultBean.HotInfoBean hotInfoBean = hot_info.get(position);
                     //商品信息类
                     GoodsBean goodsBean = new GoodsBean();
                     goodsBean.setCover_price(hotInfoBean.getCover_price());
@@ -184,7 +189,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     }
 
 
-    class RecommendViewHolder extends RecyclerView.ViewHolder{
+    class RecommendViewHolder extends RecyclerView.ViewHolder {
 
         private final Context mContext;
         private TextView tv_more_recommend;
@@ -199,17 +204,17 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
         }
 
-        public void setData(final List<ResultBeanData.ResultBean.RecommendInfoBean> recommend_info) {
+        public void setData(final List<ResultBean.RecommendInfoBean> recommend_info) {
             //1.有数据了
             //2.设置适配器
-            adapter = new RecommendGridViewAdapter(mContext,recommend_info);
+            adapter = new RecommendGridViewAdapter(mContext, recommend_info);
             gv_recommend.setAdapter(adapter);
 
             gv_recommend.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(mContext, "position=="+position, Toast.LENGTH_SHORT).show();
-                    ResultBeanData.ResultBean.RecommendInfoBean recommendInfoBean = recommend_info.get(position);
+                    Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
+                    ResultBean.RecommendInfoBean recommendInfoBean = recommend_info.get(position);
 
                     GoodsBean goodsBean = new GoodsBean();
                     goodsBean.setCover_price(recommendInfoBean.getCover_price());
@@ -223,7 +228,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     }
 
 
-    class SeckillViewHolder extends RecyclerView.ViewHolder{
+    class SeckillViewHolder extends RecyclerView.ViewHolder {
         private final Context mContext;
         private TextView tv_time_seckill;
         private TextView tv_more_seckill;
@@ -235,7 +240,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
          */
         private long dt = 0;
 
-        private Handler handler = new Handler(){
+        private Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
@@ -245,8 +250,8 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 tv_time_seckill.setText(time);
 
                 handler.removeMessages(0);
-                handler.sendEmptyMessageDelayed(0,1000);
-                if(dt <=0){
+                handler.sendEmptyMessageDelayed(0, 1000);
+                if (dt <= 0) {
                     //把消息移除
                     handler.removeCallbacksAndMessages(null);
                 }
@@ -262,21 +267,21 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             this.mContext = mContext;
         }
 
-        public void setData(final ResultBeanData.ResultBean.SeckillInfoBean seckill_info) {
+        public void setData(final ResultBean.SeckillInfoBean seckill_info) {
             //1.得到数据了
             //2.设置数据：文本和RecyclerView的数据
-            adapter = new SeckillRecyclerViewAdapter(mContext,seckill_info.getList());
+            adapter = new SeckillRecyclerViewAdapter(mContext, seckill_info.getList());
             rv_seckill.setAdapter(adapter);
 
             //设置布局管理器（RecyclerView必须要设置的，设置是横向滑动还是纵向滑动）
-            rv_seckill.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL,false));
+            rv_seckill.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
             //设置item的点击事件
             adapter.setOnSeckillRecyclerView(new SeckillRecyclerViewAdapter.OnSeckillRecyclerView() {
                 @Override
                 public void onItemClick(int position) {
-                    Toast.makeText(mContext, "秒杀"+position, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "秒杀" + position, Toast.LENGTH_SHORT).show();
 
-                    ResultBeanData.ResultBean.SeckillInfoBean.ListBean listBean = seckill_info.getList().get(position);
+                    ResultBean.SeckillInfoBean.ListBean listBean = seckill_info.getList().get(position);
 
 
                     GoodsBean goodsBean = new GoodsBean();
@@ -290,10 +295,10 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
 
             //秒杀倒计时 -毫秒
-            dt =   Integer.valueOf(seckill_info.getEnd_time()) - Integer.valueOf(seckill_info.getStart_time());
+            dt = Integer.valueOf(seckill_info.getEnd_time()) - Integer.valueOf(seckill_info.getStart_time());
 
 
-            handler.sendEmptyMessageDelayed(0,1000);
+            handler.sendEmptyMessageDelayed(0, 1000);
         }
     }
 
@@ -308,7 +313,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             act_viewpager = (ViewPager) itemView.findViewById(R.id.act_viewpager);
         }
 
-        public void setData(final List<ResultBeanData.ResultBean.ActInfoBean> act_info) {
+        public void setData(final List<ResultBean.ActInfoBean> act_info) {
             act_viewpager.setPageMargin(20);
             act_viewpager.setOffscreenPageLimit(3);//里面写的数值要>=3
 
@@ -353,7 +358,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Toast.makeText(mContext, "position=="+position, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -385,11 +390,19 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onItemClick(AdapterView parent, View view, int position, long id) {
                     Toast.makeText(mContext, "position" + position, Toast.LENGTH_SHORT).show();
+
+                    if (position <= 8) {
+                        Intent intent = new Intent(mContext, GoodsListActivity.class);
+                        intent.putExtra("position", position);
+                        mContext.startActivity(intent);
+                    } else {
+
+                    }
                 }
             });
         }
 
-        public void setData(List<ResultBeanData.ResultBean.ChannelInfoBean> channel_info) {
+        public void setData(List<ResultBean.ChannelInfoBean> channel_info) {
             //得到数据了
             //设置GridView的适配器
             adapter = new ChannelAdapter(mContext, channel_info);
@@ -401,15 +414,17 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     class BannerViewHolder extends RecyclerView.ViewHolder {
         private Context mContext;
         private Banner banner;
+        public ResultBean resultBean;
 
-        public BannerViewHolder(Context mContext, View itemView) {
+        public BannerViewHolder(Context mContext, View itemView, ResultBean resultBean) {
             super(itemView);
             this.mContext = mContext;
             this.banner = (Banner) itemView.findViewById(R.id.banner);
+            this.resultBean = resultBean;
         }
 
 
-        public void setData(List<ResultBeanData.ResultBean.BannerInfoBean> banner_info) {
+        public void setData(final List<ResultBean.BannerInfoBean> banner_info) {
             //设置Banner的数据
             //得到图片集合地址
             List<String> imagesUrl = new ArrayList<>();
@@ -437,7 +452,31 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 @Override
                 public void OnBannerClick(int position) {
                     Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
-//                    startGoodsInfoActivity(goodsBean);
+
+                    if (position - 1 < banner_info.size()) {
+                        int option = banner_info.get(position - 1).getOption();
+                        String product_id = "";
+                        String name = "";
+                        String cover_price = "";
+                        if (position - 1 == 0) {
+                            product_id = "627";
+                            cover_price = "32.00";
+                            name = "剑三T恤批发";
+                        } else if (position - 1 == 1) {
+                            product_id = "21";
+                            cover_price = "8.00";
+                            name = "同人原创】剑网3 剑侠情缘叁 Q版成男 口袋胸针";
+                        } else {
+                            product_id = "1341";
+                            cover_price = "50.00";
+                            name = "【蓝诺】《天下吾双》 剑网3同人本";
+                        }
+                        String image = banner_info.get(position - 1).getImage();
+                        LogUtil.e("image====================>" + image);
+                        GoodsBean goodsBean = new GoodsBean(name, cover_price, image, product_id);
+
+                        startGoodsInfoActivity(goodsBean);
+                    }
                 }
             });
         }
@@ -445,12 +484,13 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
     /**
      * 启动商品信息列表页面
+     *
      * @param goodsBean
      */
     private void startGoodsInfoActivity(GoodsBean goodsBean) {
-//        Intent intent = new Intent(mContext, GoodsInfoActivity.class);
-//        intent.putExtra(GOODS_BEAN,goodsBean);
-//        mContext.startActivity(intent);
+        Intent intent = new Intent(mContext, GoodsInfoActivity.class);
+        intent.putExtra(GOODS_BEAN, goodsBean);
+        mContext.startActivity(intent);
     }
 
 

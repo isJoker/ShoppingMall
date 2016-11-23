@@ -22,6 +22,16 @@ public class GoodsBean implements Serializable {
      */
     private boolean isSelected = true;
 
+    public GoodsBean() {
+    }
+
+    public GoodsBean(String name, String cover_price, String figure, String product_id) {
+        this.name = name;
+        this.cover_price = cover_price;
+        this.figure = figure;
+        this.product_id = product_id;
+    }
+
     public boolean isSelected() {
         return isSelected;
     }
