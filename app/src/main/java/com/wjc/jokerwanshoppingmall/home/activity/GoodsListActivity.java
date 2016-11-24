@@ -167,7 +167,6 @@ public class GoodsListActivity extends Activity implements View.OnClickListener 
         } else if (v == ibGoodsListHome) {
 //            Intent intent = new Intent(this, MainActivity.class);
 //            startActivity(intent);
-            Constants.isBackHome = true;
             finish();
         } else if (v == tvGoodsListSearch) {
             Toast.makeText(GoodsListActivity.this, "搜索", Toast.LENGTH_SHORT).show();
@@ -199,17 +198,14 @@ public class GoodsListActivity extends Activity implements View.OnClickListener 
         } else if (v == rl_select_price) {
             //价格筛选的页面
             ll_price_root.setVisibility(View.VISIBLE);
-            ib_drawer_layout_back.setVisibility(View.GONE);
 
             showPriceLayout();
         } else if (v == rl_select_recommend_theme) {
             ll_theme_root.setVisibility(View.VISIBLE);
-            ib_drawer_layout_back.setVisibility(View.GONE);
 
             showThemeLayout();
         } else if (v == rl_select_type) {
             ll_type_root.setVisibility(View.VISIBLE);
-            ib_drawer_layout_back.setVisibility(View.GONE);
 
             showTypeLayout();
         } else if (v == ib_drawer_layout_back) {
@@ -218,7 +214,6 @@ public class GoodsListActivity extends Activity implements View.OnClickListener 
             Toast.makeText(GoodsListActivity.this, "取消", Toast.LENGTH_SHORT).show();
 
             ll_select_root.setVisibility(View.VISIBLE);
-            ib_drawer_layout_back.setVisibility(View.VISIBLE);
             showSelectorLayout();
         } else if (v == btn_drawer_layout_confirm) {
             Toast.makeText(GoodsListActivity.this, "确认", Toast.LENGTH_SHORT).show();
@@ -339,7 +334,7 @@ public class GoodsListActivity extends Activity implements View.OnClickListener 
             public boolean onGroupClick(ExpandableListView parent,
                                         View v, int groupPosition, long id) {
                 if (child.get(groupPosition).isEmpty()) {// isEmpty没有
-                    return true;
+                    return true;//消费掉此点击事件
                 } else {
                     return false;
                 }

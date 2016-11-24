@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\release\\color\\vpi__dark_theme.xml",
+        "source": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\color\\vpi__dark_theme.xml"
+    },
+    {
+        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\release\\color\\vpi__dark_theme.xml",
+        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\color\\vpi__dark_theme.xml"
+    },
+    {
+        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\release\\color\\vpi__light_theme.xml",
+        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\color\\vpi__light_theme.xml"
+    },
+    {
+        "merged": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\release\\color\\vpi__light_theme.xml",
+        "source": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\color\\vpi__light_theme.xml"
+    }
+]

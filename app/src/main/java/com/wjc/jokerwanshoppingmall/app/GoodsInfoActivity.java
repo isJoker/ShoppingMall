@@ -133,7 +133,6 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
         } else if (v == tvMoreSearch) {
             Toast.makeText(GoodsInfoActivity.this, "搜索", Toast.LENGTH_SHORT).show();
         } else if (v == tvMoreHome) {
-            Constants.isBackHome = true;
             finish();
         } else if (v == tvGoodInfoCallcenter) {
             Toast.makeText(GoodsInfoActivity.this, "客服", Toast.LENGTH_SHORT).show();

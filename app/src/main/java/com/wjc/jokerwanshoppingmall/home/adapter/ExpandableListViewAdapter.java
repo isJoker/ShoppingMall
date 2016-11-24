@@ -65,6 +65,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         return childPosition;
     }
 
+    //是否具有稳定的id
     @Override
     public boolean hasStableIds() {
         return true;
@@ -98,6 +99,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         final ViewHolder holder;
         if (convertView == null) {
+            //三种渲染视图的方式 View.inflate()
             convertView = LayoutInflater.from(context).inflate(R.layout.child_list_item, null);
             holder = new ViewHolder();
             holder.textView = (TextView) convertView.findViewById(R.id.textView);
@@ -123,6 +125,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    //  子项是否可选中，如果需要设置子项的点击事件，需要返回true
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         childP = childPosition;

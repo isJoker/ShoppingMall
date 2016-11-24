@@ -16,6 +16,8 @@ public class Constants {
     // 请求图片基本URL
     public static final String BASE_URL_IMAGE = BASE+"/atguigu/img";
 
+    //http://192.168.191.1:8080/atguigu/json/HOT_POST_URL.json
+
     //主页路径
     public static final String HOME_URL = BASE_URL_JSON + "HOME_URL.json";
     public static final String TAG_URL = BASE_URL_JSON + "TAG_URL.json";
@@ -59,7 +61,5 @@ public class Constants {
     public static final String FOOD_STORE = BASE_URL_JSON + "FOOD_STORE.json";
     //首饰厂
     public static final String SHOUSHI_STORE = BASE_URL_JSON + "SHOUSHI_STORE.json";
-
-    public static Boolean isBackHome = false;
 
 }

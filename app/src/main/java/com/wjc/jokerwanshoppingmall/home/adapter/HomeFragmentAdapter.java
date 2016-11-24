@@ -311,7 +311,8 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
         public void setData(final List<ResultBean.ActInfoBean> act_info) {
             act_viewpager.setPageMargin(20);
-            act_viewpager.setOffscreenPageLimit(3);//里面写的数值要>=3
+            //当前view的左右两边的预加载的页面的个数为3,看源码可知，默认值为1，大于1的值才起作用
+            act_viewpager.setOffscreenPageLimit(3);
 
             //setPageTransformer 决定动画效果
             act_viewpager.setPageTransformer(true, new

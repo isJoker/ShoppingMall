@@ -35,4 +35,6 @@ dependencies {
     compile 'com.zhy:magic-viewpager:1.0.1'
     compile 'com.google.code.gson:gson:2.2.4'
     compile project(path: ':FlycoTabLayout_Lib')
+    compile project(path: ':ViewPagerIndicator_library')
+    compile project(path: ':opendanmaku')
 }
