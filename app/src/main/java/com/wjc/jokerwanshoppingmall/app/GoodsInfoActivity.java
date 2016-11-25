@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,12 +22,11 @@ import com.bumptech.glide.Glide;
 import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.home.bean.GoodsBean;
 import com.wjc.jokerwanshoppingmall.home.utils.VirtualkeyboardHeight;
+import com.wjc.jokerwanshoppingmall.shoppingcart.activity.ShoppingCartActivity;
 import com.wjc.jokerwanshoppingmall.shoppingcart.utils.CartProvider;
 import com.wjc.jokerwanshoppingmall.shoppingcart.view.NumberAddSubView;
 import com.wjc.jokerwanshoppingmall.utils.Constants;
 import com.wjc.jokerwanshoppingmall.utils.LogUtil;
-
-import java.util.List;
 
 /**
  * 商品信息列表
@@ -60,7 +58,6 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
      private String[] sellers = new String[]{"次元仓", "画影工作室", "Wacom"};
      private List<GoodsList> goodsLists;
     private GoodsList goodsList;*/
-    private List<GoodsBean> goodsBeans;
     private GoodsBean goods_bean;
 
     /**
@@ -133,6 +130,7 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
         } else if (v == tvMoreSearch) {
             Toast.makeText(GoodsInfoActivity.this, "搜索", Toast.LENGTH_SHORT).show();
         } else if (v == tvMoreHome) {
+            Constants.isBackHome = true;
             finish();
         } else if (v == tvGoodInfoCallcenter) {
             Toast.makeText(GoodsInfoActivity.this, "客服", Toast.LENGTH_SHORT).show();
@@ -142,8 +140,8 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
             Toast.makeText(GoodsInfoActivity.this, "收藏", Toast.LENGTH_SHORT).show();
         } else if (v == tvGoodInfoCart) {
 //            Toast.makeText(GoodsInfoActivity.this, "购物车", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(this, ShoppingCartActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
+            startActivity(intent);
 
         } else if (v == btnGoodInfoAddcart) {
             //添加购物车
@@ -222,7 +220,7 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
 //        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 //        View view = inflater.inflate(R.layout.popupwindow_add_product, null);
 
-        View view = View.inflate(this,R.layout.popupwindow_add_product, null);
+        View view = View.inflate(this, R.layout.popupwindow_add_product, null);
 
         // 2下面是两种方法得到宽度和高度 getWindow().getDecorView().getWidth()
         final PopupWindow window = new PopupWindow(view,
@@ -266,6 +264,7 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
             public void addNumber(View view, int value) {
                 int number = goods_bean.getNumber();
                 goods_bean.setNumber(number + 1);
+                LogUtil.e("------------------------------1--" + goods_bean.getNumber());
                 if (number + 1 >= 5) {
                     Toast.makeText(GoodsInfoActivity.this, "该商品最多购买5个", Toast.LENGTH_SHORT).show();
                     goods_bean.setNumber(5);
@@ -299,7 +298,6 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
                 //添加购物车
                 cartProvider.addData(goods_bean);
 
-                Log.e("TAG", "66:" + goods_bean.toString());
                 Toast.makeText(GoodsInfoActivity.this, "添加购物车成功", Toast.LENGTH_SHORT).show();
             }
         });

@@ -62,4 +62,6 @@ public class Constants {
     //首饰厂
     public static final String SHOUSHI_STORE = BASE_URL_JSON + "SHOUSHI_STORE.json";
 
+    public static Boolean isBackHome = false;
+
 }

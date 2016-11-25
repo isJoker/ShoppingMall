@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.base.BaseFragment;
+import com.wjc.jokerwanshoppingmall.utils.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,6 +104,7 @@ public class TypeFragment extends BaseFragment {
 
     public void hideFragment() {
         if (listFragment != null && tagFragment != null) {
+            LogUtil.e("getActivity()---------------->" + getActivity() );
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
             transaction.hide(listFragment).hide(tagFragment).commit();
         }

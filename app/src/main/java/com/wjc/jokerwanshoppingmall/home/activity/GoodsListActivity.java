@@ -167,6 +167,7 @@ public class GoodsListActivity extends Activity implements View.OnClickListener 
         } else if (v == ibGoodsListHome) {
 //            Intent intent = new Intent(this, MainActivity.class);
 //            startActivity(intent);
+            Constants.isBackHome = true;
             finish();
         } else if (v == tvGoodsListSearch) {
             Toast.makeText(GoodsListActivity.this, "搜索", Toast.LENGTH_SHORT).show();

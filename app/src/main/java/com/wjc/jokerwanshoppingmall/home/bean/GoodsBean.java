@@ -15,12 +15,17 @@ public class GoodsBean implements Serializable {
     //产品id
     private String product_id;
 
+    //产品的数量
     private int number = 1;
 
     /**
+     * 是否处于编辑状态
+     */
+    private boolean isEditing;
+    /**
      * 是否被选中
      */
-    private boolean isSelected = true;
+    private boolean isChildSelected;
 
     public GoodsBean() {
     }
@@ -30,22 +35,6 @@ public class GoodsBean implements Serializable {
         this.cover_price = cover_price;
         this.figure = figure;
         this.product_id = product_id;
-    }
-
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public String getCover_price() {
@@ -80,6 +69,30 @@ public class GoodsBean implements Serializable {
         this.product_id = product_id;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public boolean isEditing() {
+        return isEditing;
+    }
+
+    public void setEditing(boolean editing) {
+        isEditing = editing;
+    }
+
+    public boolean isChildSelected() {
+        return isChildSelected;
+    }
+
+    public void setIsChildSelected(boolean childSelected) {
+        isChildSelected = childSelected;
+    }
+
     @Override
     public String toString() {
         return "GoodsBean{" +
@@ -88,7 +101,8 @@ public class GoodsBean implements Serializable {
                 ", name='" + name + '\'' +
                 ", product_id='" + product_id + '\'' +
                 ", number=" + number +
-                ", isSelected=" + isSelected +
+                ", isEditing=" + isEditing +
+                ", isChildSelected=" + isChildSelected +
                 '}';
     }
 }

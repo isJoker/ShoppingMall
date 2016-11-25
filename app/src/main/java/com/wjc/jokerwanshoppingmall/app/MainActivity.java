@@ -43,6 +43,8 @@ public class MainActivity extends FragmentActivity {
     private int position;
     private TypeFragment typeFragment;
     private BaseFragment mContext;
+    private ShoppingCartFragment shoppingCartFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +63,12 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checked) {
                 switch (checked) {
-                    case  R.id.rb_home:
+                    case R.id.rb_home:
                         position = 0;
 
                         typeFragment.hideFragment();
                         break;
-                    case  R.id.rb_type:
+                    case R.id.rb_type:
                         position = 1;
 
                         //初始化数据
@@ -84,34 +86,39 @@ public class MainActivity extends FragmentActivity {
                         }
 
                         break;
-                    case  R.id.rb_community:
+                    case R.id.rb_community:
                         position = 2;
 
                         typeFragment.hideFragment();
                         break;
-                    case  R.id.rb_cart:
+                    case R.id.rb_cart:
                         position = 3;
+
+                        fragments.remove(fragments.get(3));
+                        ShoppingCartFragment cartFragment = new ShoppingCartFragment();
+                        fragments.add(3, cartFragment);
 
                         typeFragment.hideFragment();
                         break;
-                    case  R.id.rb_user:
+                    case R.id.rb_user:
                         position = 4;
-
+//                        dismissAnmiation();
                         typeFragment.hideFragment();
                         break;
                 }
+
                 BaseFragment baseFragment = getFragment(position);
                 switchFragment(mContext, baseFragment);
+
             }
         });
 
-        //默认选择首页  要放在设置监听的后面
+        //默认选择首页  要放在设置监听的后面，check状态改变，触发监听
         rgMain.check(R.id.rb_home);
 
     }
 
     /**
-     *
      * @param position
      * @return
      */
@@ -125,6 +132,7 @@ public class MainActivity extends FragmentActivity {
 
     /**
      * 切换Fragment
+     *
      * @param fromFragment
      * @param nextFragment
      */
@@ -132,6 +140,7 @@ public class MainActivity extends FragmentActivity {
         if (mContext != nextFragment) {
             mContext = nextFragment;
             if (nextFragment != null) {
+
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 //判断nextFragment是否添加
                 if (!nextFragment.isAdded()) {

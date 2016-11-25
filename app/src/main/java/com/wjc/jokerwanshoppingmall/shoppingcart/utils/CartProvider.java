@@ -86,10 +86,11 @@ public class CartProvider {
         //添加数据
         GoodsBean tempCart = datas.get(Integer.parseInt(cart.getProduct_id()));
         if (tempCart != null) {
-            tempCart.setNumber(tempCart.getNumber() + 1);
+            //如果SparseArray中已经存在此商品，在商品原来的数量基础上，加上新加进购物车的数量
+            tempCart.setNumber(tempCart.getNumber() + cart.getNumber());
         } else {
             tempCart = cart;
-            tempCart.setNumber(1);
+            tempCart.setNumber(cart.getNumber());
         }
 
         datas.put(Integer.parseInt(tempCart.getProduct_id()), tempCart);
@@ -115,9 +116,7 @@ public class CartProvider {
     public void deleteData(GoodsBean cart) {
 
         //删除数据
-
         datas.delete(Integer.parseInt(cart.getProduct_id()));
-
 
         //保存数据
         commit();
