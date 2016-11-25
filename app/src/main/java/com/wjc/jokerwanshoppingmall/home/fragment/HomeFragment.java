@@ -1,5 +1,6 @@
 package com.wjc.jokerwanshoppingmall.home.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -15,6 +16,7 @@ import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.base.BaseFragment;
 import com.wjc.jokerwanshoppingmall.home.adapter.HomeFragmentAdapter;
 import com.wjc.jokerwanshoppingmall.home.bean.ResultBean;
+import com.wjc.jokerwanshoppingmall.user.activity.MessageCenterActivity;
 import com.wjc.jokerwanshoppingmall.utils.Constants;
 import com.wjc.jokerwanshoppingmall.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -169,8 +171,8 @@ public class HomeFragment extends BaseFragment {
         tvMessageHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(mContext, MessageCenterActivity.class);
-//                mContext.startActivity(intent);
+                Intent intent = new Intent(mContext, MessageCenterActivity.class);
+                mContext.startActivity(intent);
             }
         });
 

@@ -103,17 +103,18 @@ public class ListFragment extends BaseFragment {
 
                         GridLayoutManager manager = new GridLayoutManager(getActivity(), 3);//设置GridView为三列
 
-                        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {//？
+                        //设置不同position的Item所占的列数
+                        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                             @Override
                             public int getSpanSize(int position) {
                                 if (position == 0) {
-                                    return 3;
+                                    return 3;//热卖推荐的HorizontalScrollView所占的列数为3
                                 } else {
-                                    return 1;
+                                    return 1;//其他每个item所占的列数为1
                                 }
                             }
                         });
-                        rvRight.setLayoutManager(manager);
+                        rvRight.setLayoutManager(manager);//给RecyclerView设置列数为3网格布局
                     }
 
                     break;

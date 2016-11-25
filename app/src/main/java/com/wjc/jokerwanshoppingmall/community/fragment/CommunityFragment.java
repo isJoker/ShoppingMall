@@ -1,5 +1,6 @@
 package com.wjc.jokerwanshoppingmall.community.fragment;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageButton;
@@ -7,8 +8,10 @@ import android.widget.ImageButton;
 import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.base.BaseFragment;
 import com.wjc.jokerwanshoppingmall.community.adapter.CommunityViewPagerAdapter;
+import com.wjc.jokerwanshoppingmall.user.activity.MessageCenterActivity;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 
 /**
  * Created by ${万嘉诚} on 2016/11/17.
@@ -40,5 +43,11 @@ public class CommunityFragment extends BaseFragment {
         viewPager.setAdapter(adapter);
         pagerIndicator.setVisibility(View.VISIBLE);
         pagerIndicator.setViewPager(viewPager);
+    }
+
+    @OnClick(R.id.ib_community_message)
+    public void message(){
+        Intent intent = new Intent(getActivity(), MessageCenterActivity.class);
+        startActivity(intent);
     }
 }

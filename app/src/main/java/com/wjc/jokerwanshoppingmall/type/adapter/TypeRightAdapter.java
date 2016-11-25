@@ -1,6 +1,7 @@
 package com.wjc.jokerwanshoppingmall.type.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.wjc.jokerwanshoppingmall.R;
+import com.wjc.jokerwanshoppingmall.app.GoodsInfoActivity;
+import com.wjc.jokerwanshoppingmall.home.bean.GoodsBean;
 import com.wjc.jokerwanshoppingmall.type.bean.TypeBean;
 import com.wjc.jokerwanshoppingmall.utils.Constants;
 import com.wjc.jokerwanshoppingmall.utils.DensityUtil;
@@ -134,14 +137,14 @@ public class TypeRightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                         .load(Constants.BASE_URL_IMAGE + hot_product_list.get(i).getFigure())
                         .into(imageView);
                 lp.setMargins(0, 0, 0, DensityUtil.dip2px(mContext, 10));
-                myLinear.addView(imageView, lp);
+                myLinear.addView(imageView, lp);//把图片添加到线性布局
 
                 LinearLayout.LayoutParams textViewLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 TextView textView = new TextView(mContext);
                 textView.setText("￥" + hot_product_list.get(i).getCover_price());
                 textView.setGravity(Gravity.CENTER);
                 textView.setTextColor(Color.parseColor("#ed3f3f"));
-                myLinear.addView(textView, textViewLp);
+                myLinear.addView(textView, textViewLp);//把文本添加到线性布局
 
                 //点击事件
                 myLinear.setOnClickListener(new View.OnClickListener() {
@@ -153,12 +156,11 @@ public class TypeRightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                         String name = hot_product_list.get(i).getName();
                         String figure = hot_product_list.get(i).getFigure();
                         String product_id = hot_product_list.get(i).getProduct_id();
-//                        GoodsBean goodsBean = new GoodsBean(name, cover_price, figure, product_id);
+                        GoodsBean goodsBean = new GoodsBean(name, cover_price, figure, product_id);
 
-//                        Intent intent = new Intent(mContext, GoodsInfoActivity.class);
-//                        intent.putExtra("goods_bean", goodsBean);
-//                        mContext.startActivity(intent);
-                        // Toast.makeText(mContext, "position" + i, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(mContext, GoodsInfoActivity.class);
+                        intent.putExtra("goods_bean", goodsBean);
+                        mContext.startActivity(intent);
                     }
                 });
             }
