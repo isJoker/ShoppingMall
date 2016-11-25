@@ -51,6 +51,8 @@
         <activity android:name=".shoppingcart.activity.ShoppingCartActivity"/>
 
         <activity android:name=".user.activity.MessageCenterActivity"/>
+
+        <activity android:name=".app.LoginActivity"/>
     </application>
 
 </manifest>
