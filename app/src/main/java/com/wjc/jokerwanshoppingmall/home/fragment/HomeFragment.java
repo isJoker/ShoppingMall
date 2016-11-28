@@ -1,6 +1,7 @@
 package com.wjc.jokerwanshoppingmall.home.fragment;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -16,9 +17,9 @@ import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.base.BaseFragment;
 import com.wjc.jokerwanshoppingmall.home.adapter.HomeFragmentAdapter;
 import com.wjc.jokerwanshoppingmall.home.bean.ResultBean;
-import com.wjc.jokerwanshoppingmall.user.activity.MessageCenterActivity;
-import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 import com.wjc.jokerwanshoppingmall.utils.LogUtil;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
+import com.xys.libzxing.zxing.activity.CaptureActivity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -28,6 +29,7 @@ import butterknife.Bind;
 import butterknife.OnClick;
 import okhttp3.Call;
 
+import static android.app.Activity.RESULT_OK;
 import static com.wjc.jokerwanshoppingmall.R.id.ib_top;
 import static com.wjc.jokerwanshoppingmall.R.id.tv_message_home;
 import static com.wjc.jokerwanshoppingmall.R.id.tv_search_home;
@@ -44,7 +46,7 @@ public class HomeFragment extends BaseFragment {
     @Bind(tv_search_home)
     EditText tvSearchHome;
     @Bind(tv_message_home)
-    TextView tvMessageHome;
+    TextView qrCode;
     @Bind(R.id.rv_home)
     RecyclerView rvHome;
     @Bind(ib_top)
@@ -72,7 +74,9 @@ public class HomeFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case tv_message_home:
-                Toast.makeText(mContext, "进入消息中心", Toast.LENGTH_SHORT).show();
+                //打开扫描界面扫描条形码或二维码
+                Intent openCameraIntent = new Intent(mContext, CaptureActivity.class);
+                startActivityForResult(openCameraIntent, 0);
                 break;
             case R.id.ib_top:
                 //回到顶部
@@ -141,7 +145,6 @@ public class HomeFragment extends BaseFragment {
                     //设置布局管理者
                     rvHome.setLayoutManager(manager);
 
-                    initListener();
 
                 }
 
@@ -150,32 +153,16 @@ public class HomeFragment extends BaseFragment {
         }
     }
 
-    private void initListener() {
-        //置顶的监听
-        ibTop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rvHome.scrollToPosition(0);
-            }
-        });
 
-        //搜素的监听
-        tvSearchHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext, "搜索", Toast.LENGTH_SHORT).show();
-            }
-        });
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        //消息的监听
-        tvMessageHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, MessageCenterActivity.class);
-                mContext.startActivity(intent);
-            }
-        });
-
+        if (resultCode == RESULT_OK && data != null) {
+            Bundle bundle = data.getExtras();
+            String scanResult = bundle.getString("result");
+            //resultTextView.setText(scanResult);
+            Toast.makeText(mContext, "" + scanResult, Toast.LENGTH_SHORT).show();
+        }
     }
 
 

@@ -4,15 +4,7 @@
         "source": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable\\vpi_text_tab_indicator.xml"
     },
     {
-        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\release\\drawable\\vpi_text_tab_indicator.xml",
-        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable\\vpi_text_tab_indicator.xml"
-    },
-    {
         "merged": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\release\\drawable\\vpi__tab_indicator.xml",
         "source": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable\\vpi__tab_indicator.xml"
-    },
-    {
-        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\release\\drawable\\vpi__tab_indicator.xml",
-        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable\\vpi__tab_indicator.xml"
     }
 ]

@@ -1,23 +1,11 @@
 [
     {
-        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_unselected_holo.9.png",
-        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\vpi__tab_unselected_holo.9.png"
-    },
-    {
         "merged": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_selected_focused_holo.9.png",
         "source": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\vpi__tab_selected_focused_holo.9.png"
     },
     {
-        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_unselected_pressed_holo.9.png",
-        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\vpi__tab_unselected_pressed_holo.9.png"
-    },
-    {
         "merged": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tab.png",
         "source": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\tab.png"
-    },
-    {
-        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tab.png",
-        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\tab.png"
     },
     {
         "merged": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_selected_pressed_holo.9.png",
@@ -32,35 +20,15 @@
         "source": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\community_tab_subscript.png"
     },
     {
-        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_selected_pressed_holo.9.png",
-        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\vpi__tab_selected_pressed_holo.9.png"
-    },
-    {
         "merged": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_unselected_pressed_holo.9.png",
         "source": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\vpi__tab_unselected_pressed_holo.9.png"
-    },
-    {
-        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_selected_holo.9.png",
-        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\vpi__tab_selected_holo.9.png"
     },
     {
         "merged": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_selected_holo.9.png",
         "source": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\vpi__tab_selected_holo.9.png"
     },
     {
-        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\community_tab_subscript.png",
-        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\community_tab_subscript.png"
-    },
-    {
         "merged": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_unselected_holo.9.png",
         "source": "E:\\android\\MyAllApp\\JokerWanShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\vpi__tab_unselected_holo.9.png"
-    },
-    {
-        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_unselected_focused_holo.9.png",
-        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\vpi__tab_unselected_focused_holo.9.png"
-    },
-    {
-        "merged": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_selected_focused_holo.9.png",
-        "source": "E:\\android\\MyAllApp\\ShoppingMall\\ViewPagerIndicator_library\\src\\main\\res\\drawable-hdpi\\vpi__tab_selected_focused_holo.9.png"
     }
 ]
