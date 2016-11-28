@@ -19,7 +19,7 @@ import com.squareup.picasso.Transformation;
 import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.community.bean.NewPostBean;
 import com.wjc.jokerwanshoppingmall.utils.BitmapUtils;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -73,7 +73,7 @@ public class NewPostListViewAdapter extends BaseAdapter {
         holder.tvCommunityUsername.setText(resultBean.getUsername());
 
         Glide.with(mContext)
-                .load(Constants.BASE_URL_IMAGE+resultBean.getFigure())
+                .load(MyConstants.BASE_URL_IMAGE+resultBean.getFigure())
                 .into(holder.ivCommunityFigure);
 
         holder.tvCommunitySaying.setText(resultBean.getSaying());

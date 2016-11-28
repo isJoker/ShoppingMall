@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide;
 import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.home.activity.GoodsListActivity;
 import com.wjc.jokerwanshoppingmall.home.bean.TypeListBean;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 
 import java.util.List;
 
@@ -68,7 +68,7 @@ public class GoodsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
 
         public void setData(TypeListBean.ResultBean.PageDataBean data) {
-            Glide.with(mContext).load(Constants.BASE_URL_IMAGE+data.getFigure()).into(iv_hot);
+            Glide.with(mContext).load(MyConstants.BASE_URL_IMAGE+data.getFigure()).into(iv_hot);
             tv_name.setText(data.getName());
             tv_price.setText("￥" + data.getCover_price());
             this.data = data;

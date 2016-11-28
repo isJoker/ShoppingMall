@@ -29,7 +29,7 @@ import com.wjc.jokerwanshoppingmall.shoppingcart.pay.PayKeys;
 import com.wjc.jokerwanshoppingmall.shoppingcart.pay.PayResult;
 import com.wjc.jokerwanshoppingmall.shoppingcart.pay.SignUtils;
 import com.wjc.jokerwanshoppingmall.shoppingcart.utils.CartProvider;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -139,7 +139,7 @@ public class ShoppingCartFragment extends BaseFragment {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, MainActivity.class);
                 startActivity(intent);
-                Constants.isBackHome = true;
+                MyConstants.isBackHome = true;
             }
         });
 

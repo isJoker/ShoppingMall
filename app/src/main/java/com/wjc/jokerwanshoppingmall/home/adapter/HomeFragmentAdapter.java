@@ -23,7 +23,7 @@ import com.wjc.jokerwanshoppingmall.app.GoodsInfoActivity;
 import com.wjc.jokerwanshoppingmall.home.activity.GoodsListActivity;
 import com.wjc.jokerwanshoppingmall.home.bean.GoodsBean;
 import com.wjc.jokerwanshoppingmall.home.bean.ResultBean;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -347,7 +347,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                     ImageView imageView = new ImageView(mContext);
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
-                    Glide.with(mContext).load(Constants.BASE_URL_IMAGE + act_info.get(position).getIcon_url()).into(imageView);
+                    Glide.with(mContext).load(MyConstants.BASE_URL_IMAGE + act_info.get(position).getIcon_url()).into(imageView);
                     //添加到容器中
                     container.addView(imageView);
 
@@ -438,7 +438,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 public void OnLoadImage(ImageView view, Object url) {
 
                     //联网请求图片-Glide
-                    Glide.with(mContext).load(Constants.BASE_URL_IMAGE + url).into(view);
+                    Glide.with(mContext).load(MyConstants.BASE_URL_IMAGE + url).into(view);
 
                 }
             });

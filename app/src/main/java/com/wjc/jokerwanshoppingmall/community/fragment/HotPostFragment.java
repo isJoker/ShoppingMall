@@ -8,7 +8,7 @@ import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.base.BaseFragment;
 import com.wjc.jokerwanshoppingmall.community.adapter.HotPostListViewAdapter;
 import com.wjc.jokerwanshoppingmall.community.bean.HotPostBean;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 import com.wjc.jokerwanshoppingmall.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -44,7 +44,7 @@ public class HotPostFragment extends BaseFragment {
     public void getDataFromNet() {
         OkHttpUtils
                 .get()
-                .url(Constants.HOT_POST_URL)
+                .url(MyConstants.HOT_POST_URL)
                 .id(100)
                 .build()
                 .execute(new MyStringCallback());

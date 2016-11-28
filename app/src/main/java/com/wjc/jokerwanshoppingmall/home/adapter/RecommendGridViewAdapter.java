@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.home.bean.ResultBean;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 
 import java.util.List;
 
@@ -59,7 +59,7 @@ public class RecommendGridViewAdapter extends BaseAdapter {
 
         //根据位置得到对应的数据
         ResultBean.RecommendInfoBean recommendInfoBean = datas.get(position);
-        Glide.with(mContext).load(Constants.BASE_URL_IMAGE+recommendInfoBean.getFigure()).into(viewHolder.iv_recommend);
+        Glide.with(mContext).load(MyConstants.BASE_URL_IMAGE+recommendInfoBean.getFigure()).into(viewHolder.iv_recommend);
         viewHolder.tv_name.setText(recommendInfoBean.getName());
         viewHolder.tv_price.setText("￥"+recommendInfoBean.getCover_price());
 

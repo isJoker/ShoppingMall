@@ -37,4 +37,6 @@ dependencies {
     compile project(path: ':FlycoTabLayout_Lib')
     compile project(path: ':ViewPagerIndicator_library')
     compile project(path: ':opendanmaku')
+    compile files('libs/mta-sdk-1.6.2.jar')
+    compile files('libs/open_sdk_r5756.jar')
 }

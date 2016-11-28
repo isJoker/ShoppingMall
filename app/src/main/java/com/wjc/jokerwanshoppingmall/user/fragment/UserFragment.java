@@ -2,12 +2,11 @@ package com.wjc.jokerwanshoppingmall.user.fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +18,14 @@ import com.wjc.jokerwanshoppingmall.app.LoginActivity;
 import com.wjc.jokerwanshoppingmall.base.BaseFragment;
 import com.wjc.jokerwanshoppingmall.user.activity.MessageCenterActivity;
 import com.wjc.jokerwanshoppingmall.utils.BitmapUtils;
+import com.wjc.jokerwanshoppingmall.utils.LogUtil;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
+import com.wjc.jokerwanshoppingmall.utils.PreferenceUtils;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by ${万嘉诚} on 2016/11/17.
@@ -33,7 +36,7 @@ import butterknife.OnClick;
 public class UserFragment extends BaseFragment {
 
     @Bind(R.id.ib_user_icon_avator)
-    ImageButton ibUserIconAvator;
+    ImageView ibUserIconAvator;
     @Bind(R.id.tv_username)
     TextView tvUsername;
     @Bind(R.id.tv_all_order)
@@ -81,6 +84,15 @@ public class UserFragment extends BaseFragment {
     @Override
     public void initData() {
         super.initData();
+        //设置头像和用户名
+        String imageurl = PreferenceUtils.getString(getActivity(), MyConstants.IMAGE_URL);
+        setImageAvator(imageurl);
+
+        String userName = PreferenceUtils.getString(getActivity(), MyConstants.USER_NAME);
+        if (!TextUtils.isEmpty(userName)) {
+            tvUsername.setText(userName);
+        }
+
         tvUsercenter.setAlpha(0);
 
         scrollview.setOnTouchListener(new View.OnTouchListener() {
@@ -101,59 +113,59 @@ public class UserFragment extends BaseFragment {
         });
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 0) {
-            String screen_name = data.getStringExtra("screen_name");
-            String profile_image_url = data.getStringExtra("profile_image_url");
-
-            Picasso.with(mContext).load(profile_image_url).transform(new Transformation() {
+    /**
+     * 设置用户头像
+     * @param imageurl
+     */
+    private void setImageAvator(String imageurl) {
+        if(!TextUtils.isEmpty(imageurl)) {
+            Picasso.with(mContext).load(imageurl).transform(new Transformation() {
                 @Override
                 public Bitmap transform(Bitmap bitmap) {
                     //先对图片进行压缩
 //                Bitmap zoom = BitmapUtils.zoom(bitmap, DensityUtil.dip2px(mContext, 62), DensityUtil.dip2px(mContext, 62));
-                    Bitmap zoom = BitmapUtils.zoom(bitmap, 90, 90);
+                    Bitmap zoom = BitmapUtils.zoom(bitmap, 140, 140);
                     //对请求回来的Bitmap进行圆形处理
                     Bitmap ciceBitMap = BitmapUtils.circleBitmap(zoom);
                     bitmap.recycle();//必须队更改之前的进行回收
                     return ciceBitMap;
                 }
-
                 @Override
                 public String key() {
                     return "";
                 }
             }).into(ibUserIconAvator);
-
-            tvUsername.setText(screen_name);
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
     }
 
     @OnClick({R.id.ib_user_icon_avator,R.id.ib_user_setting,R.id.ib_user_message})
     public void onClick(View v){
         if (v == ibUserIconAvator) {
             Intent intent = new Intent(mContext, LoginActivity.class);
-            startActivityForResult(intent, 0);
+            startActivityForResult(intent,0);
 
         } else if (v == ibUserSetting) {
             Toast.makeText(mContext, "设置", Toast.LENGTH_SHORT).show();
         } else if (v == ibUserMessage) {
             Intent intent = new Intent(mContext, MessageCenterActivity.class);
             startActivity(intent);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        LogUtil.e("data============================>"+data);
+        if(data != null) {
+            if (requestCode == 0 && resultCode == RESULT_OK) {
+                String screen_name = data.getStringExtra("screen_name");
+                String profile_image_url = data.getStringExtra("profile_image_url");
+
+                LogUtil.e("screen_name=====>" + screen_name);
+                LogUtil.e("profile_image_url======>" + profile_image_url);
+
+                setImageAvator(profile_image_url);
+                tvUsername.setText(screen_name);
+            }
         }
     }
 }

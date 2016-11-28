@@ -27,7 +27,7 @@ import com.wjc.jokerwanshoppingmall.home.adapter.GoodsListAdapter;
 import com.wjc.jokerwanshoppingmall.home.bean.GoodsBean;
 import com.wjc.jokerwanshoppingmall.home.bean.TypeListBean;
 import com.wjc.jokerwanshoppingmall.home.utils.SpaceItemDecoration;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -87,15 +87,15 @@ public class GoodsListActivity extends Activity implements View.OnClickListener 
     private RelativeLayout rl_theme_note;
     private int position;
     private String[] urls = new String[]{
-            Constants.CLOSE_STORE,
-            Constants.GAME_STORE,
-            Constants.COMIC_STORE,
-            Constants.COSPLAY_STORE,
-            Constants.GUFENG_STORE,
-            Constants.STICK_STORE,
-            Constants.WENJU_STORE,
-            Constants.FOOD_STORE,
-            Constants.SHOUSHI_STORE,
+            MyConstants.CLOSE_STORE,
+            MyConstants.GAME_STORE,
+            MyConstants.COMIC_STORE,
+            MyConstants.COSPLAY_STORE,
+            MyConstants.GUFENG_STORE,
+            MyConstants.STICK_STORE,
+            MyConstants.WENJU_STORE,
+            MyConstants.FOOD_STORE,
+            MyConstants.SHOUSHI_STORE,
     };
     private List<TypeListBean.ResultBean.PageDataBean> page_data;
     private GoodsListAdapter adapter1;
@@ -167,7 +167,7 @@ public class GoodsListActivity extends Activity implements View.OnClickListener 
         } else if (v == ibGoodsListHome) {
 //            Intent intent = new Intent(this, MainActivity.class);
 //            startActivity(intent);
-            Constants.isBackHome = true;
+            MyConstants.isBackHome = true;
             finish();
         } else if (v == tvGoodsListSearch) {
             Toast.makeText(GoodsListActivity.this, "搜索", Toast.LENGTH_SHORT).show();

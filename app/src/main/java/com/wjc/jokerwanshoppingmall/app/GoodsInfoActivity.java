@@ -25,7 +25,7 @@ import com.wjc.jokerwanshoppingmall.home.utils.VirtualkeyboardHeight;
 import com.wjc.jokerwanshoppingmall.shoppingcart.activity.ShoppingCartActivity;
 import com.wjc.jokerwanshoppingmall.shoppingcart.utils.CartProvider;
 import com.wjc.jokerwanshoppingmall.shoppingcart.view.NumberAddSubView;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 import com.wjc.jokerwanshoppingmall.utils.LogUtil;
 
 /**
@@ -130,7 +130,7 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
         } else if (v == tvMoreSearch) {
             Toast.makeText(GoodsInfoActivity.this, "搜索", Toast.LENGTH_SHORT).show();
         } else if (v == tvMoreHome) {
-            Constants.isBackHome = true;
+            MyConstants.isBackHome = true;
             finish();
         } else if (v == tvGoodInfoCallcenter) {
             Toast.makeText(GoodsInfoActivity.this, "客服", Toast.LENGTH_SHORT).show();
@@ -172,7 +172,7 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
 
         if (product_id != null) {
             //http://192.168.51.104:8080/atguigu/json/GOODSINFO_URL.json2691
-//            wbGoodInfoMore.loadUrl(Constants.GOODSINFO_URL + product_id);
+//            wbGoodInfoMore.loadUrl(MyConstants.GOODSINFO_URL + product_id);
             wbGoodInfoMore.loadUrl("http://www.atguigu.com");
             //覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开
             wbGoodInfoMore.setWebViewClient(new WebViewClient() {
@@ -199,8 +199,8 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
         String figure = goodsBean.getFigure();
         String product_id = goodsBean.getProduct_id();
 
-        Glide.with(this).load(Constants.BASE_URL_IMAGE + figure).into(ivGoodInfoImage);
-        LogUtil.e("Constants.BASE_URL_IMAGE + figure======" + Constants.BASE_URL_IMAGE + figure);
+        Glide.with(this).load(MyConstants.BASE_URL_IMAGE + figure).into(ivGoodInfoImage);
+        LogUtil.e("MyConstants.BASE_URL_IMAGE + figure======" + MyConstants.BASE_URL_IMAGE + figure);
         if (name != null) {
             tvGoodInfoName.setText(name);
         }
@@ -248,7 +248,7 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
         Button bt_goodinfo_confim = (Button) view.findViewById(R.id.bt_goodinfo_confim);
 
         // 加载图片
-        Glide.with(GoodsInfoActivity.this).load(Constants.BASE_URL_IMAGE + goods_bean.getFigure()).into(iv_goodinfo_photo);
+        Glide.with(GoodsInfoActivity.this).load(MyConstants.BASE_URL_IMAGE + goods_bean.getFigure()).into(iv_goodinfo_photo);
 
         // 名称
         tv_goodinfo_name.setText(goods_bean.getName());

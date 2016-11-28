@@ -17,7 +17,7 @@ import com.wjc.jokerwanshoppingmall.base.BaseFragment;
 import com.wjc.jokerwanshoppingmall.home.adapter.HomeFragmentAdapter;
 import com.wjc.jokerwanshoppingmall.home.bean.ResultBean;
 import com.wjc.jokerwanshoppingmall.user.activity.MessageCenterActivity;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 import com.wjc.jokerwanshoppingmall.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -84,7 +84,7 @@ public class HomeFragment extends BaseFragment {
     private void getDataFromNet() {
         OkHttpUtils
                 .get()
-                .url(Constants.HOME_URL)
+                .url(MyConstants.HOME_URL)
                 .build()
                 .execute(new MyStringCallback());
     }

@@ -9,7 +9,7 @@ import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.base.BaseFragment;
 import com.wjc.jokerwanshoppingmall.type.adapter.TagGridViewAdapter;
 import com.wjc.jokerwanshoppingmall.type.bean.TagBean;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -48,7 +48,7 @@ public class TagFragment extends BaseFragment {
     public void getDataFromNet() {
         OkHttpUtils
                 .get()
-                .url(Constants.TAG_URL)
+                .url(MyConstants.TAG_URL)
                 .id(100)
                 .build()
                 .execute(new MyStringCallback());

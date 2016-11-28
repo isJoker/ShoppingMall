@@ -18,7 +18,7 @@ import com.squareup.picasso.Transformation;
 import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.community.bean.HotPostBean;
 import com.wjc.jokerwanshoppingmall.utils.BitmapUtils;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 import com.wjc.jokerwanshoppingmall.utils.DensityUtil;
 
 import java.text.SimpleDateFormat;
@@ -76,7 +76,7 @@ public class HotPostListViewAdapter extends BaseAdapter {
         SimpleDateFormat myFmt = new SimpleDateFormat("MM-dd HH:mm");
         holder.tvHotAddtime.setText(myFmt.format(Integer.parseInt(resultBean.getAdd_time())));
 
-        Glide.with(mContext).load(Constants.BASE_URL_IMAGE+resultBean.getFigure()).into(holder.ivHotFigure);
+        Glide.with(mContext).load(MyConstants.BASE_URL_IMAGE+resultBean.getFigure()).into(holder.ivHotFigure);
         holder.tvHotSaying.setText(resultBean.getSaying());
         holder.tvHotLikes.setText(resultBean.getLikes());
         holder.tvHotComments.setText(resultBean.getComments());

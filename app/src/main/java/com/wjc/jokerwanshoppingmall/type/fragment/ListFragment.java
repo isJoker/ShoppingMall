@@ -13,7 +13,7 @@ import com.wjc.jokerwanshoppingmall.base.BaseFragment;
 import com.wjc.jokerwanshoppingmall.type.adapter.TypeLeftAdapter;
 import com.wjc.jokerwanshoppingmall.type.adapter.TypeRightAdapter;
 import com.wjc.jokerwanshoppingmall.type.bean.TypeBean;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 import com.wjc.jokerwanshoppingmall.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -39,9 +39,9 @@ public class ListFragment extends BaseFragment {
     ListView lvLeft;
     @Bind(rv_right)
     RecyclerView rvRight;
-    private String[] urls = new String[]{Constants.SKIRT_URL, Constants.JACKET_URL, Constants.PANTS_URL, Constants.OVERCOAT_URL,
-            Constants.ACCESSORY_URL, Constants.BAG_URL, Constants.DRESS_UP_URL, Constants.HOME_PRODUCTS_URL, Constants.STATIONERY_URL,
-            Constants.DIGIT_URL, Constants.GAME_URL};
+    private String[] urls = new String[]{MyConstants.SKIRT_URL, MyConstants.JACKET_URL, MyConstants.PANTS_URL, MyConstants.OVERCOAT_URL,
+            MyConstants.ACCESSORY_URL, MyConstants.BAG_URL, MyConstants.DRESS_UP_URL, MyConstants.HOME_PRODUCTS_URL, MyConstants.STATIONERY_URL,
+            MyConstants.DIGIT_URL, MyConstants.GAME_URL};
 
     private boolean isFirst = true;
     private List<TypeBean.ResultBean> result;

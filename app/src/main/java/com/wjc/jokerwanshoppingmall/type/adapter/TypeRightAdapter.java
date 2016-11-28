@@ -19,7 +19,7 @@ import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.app.GoodsInfoActivity;
 import com.wjc.jokerwanshoppingmall.home.bean.GoodsBean;
 import com.wjc.jokerwanshoppingmall.type.bean.TypeBean;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 import com.wjc.jokerwanshoppingmall.utils.DensityUtil;
 
 import java.util.List;
@@ -94,7 +94,7 @@ public class TypeRightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         public void setData(TypeBean.ResultBean.ChildBean childBean, final int position) {
             Glide.with(mContext)
-                    .load(Constants.BASE_URL_IMAGE + childBean.getPic())
+                    .load(MyConstants.BASE_URL_IMAGE + childBean.getPic())
                     .into(iv_ordinary_right);
             tv_ordinary_right.setText(childBean.getName());
 
@@ -134,7 +134,7 @@ public class TypeRightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(DensityUtil.dip2px(mContext, 80), DensityUtil.dip2px(mContext, 80));
                 ImageView imageView = new ImageView(mContext);
                 Glide.with(mContext)
-                        .load(Constants.BASE_URL_IMAGE + hot_product_list.get(i).getFigure())
+                        .load(MyConstants.BASE_URL_IMAGE + hot_product_list.get(i).getFigure())
                         .into(imageView);
                 lp.setMargins(0, 0, 0, DensityUtil.dip2px(mContext, 10));
                 myLinear.addView(imageView, lp);//把图片添加到线性布局

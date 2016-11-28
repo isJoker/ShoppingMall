@@ -25,12 +25,13 @@
                     android:layout_height="170dp"
                     android:background="@drawable/new_user_icon_background" />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/ib_user_icon_avator"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/new_user_icon" />
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/new_user_icon" />
 
                 <TextView
                     android:id="@+id/tv_username"
@@ -39,7 +40,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="130dp"
                     android:text="登录/注册"
-                    android:textColor="#fff" />
+                    android:textSize="20sp"
+                    android:textColor="#ff0000" />
             </RelativeLayout>
 
             <View

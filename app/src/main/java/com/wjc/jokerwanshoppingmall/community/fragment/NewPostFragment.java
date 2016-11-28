@@ -7,7 +7,7 @@ import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.base.BaseFragment;
 import com.wjc.jokerwanshoppingmall.community.adapter.NewPostListViewAdapter;
 import com.wjc.jokerwanshoppingmall.community.bean.NewPostBean;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 import com.wjc.jokerwanshoppingmall.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -44,7 +44,7 @@ public class NewPostFragment extends BaseFragment {
     private void getDataFromNet() {
         OkHttpUtils
                 .get()
-                .url(Constants.NEW_POST_URL)
+                .url(MyConstants.NEW_POST_URL)
                 .id(100)
                 .build()
                 .execute(new MyStringCallback());

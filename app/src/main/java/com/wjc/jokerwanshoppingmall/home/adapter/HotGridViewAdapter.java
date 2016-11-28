@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.home.bean.ResultBean;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 
 import java.util.List;
 
@@ -58,7 +58,7 @@ public class HotGridViewAdapter extends BaseAdapter {
         }
         //根据位置得到对应的数据
         ResultBean.HotInfoBean hotInfoBean = datas.get(position);
-        Glide.with(mContext).load(Constants.BASE_URL_IMAGE+hotInfoBean.getFigure()).into(viewHolder.iv_hot);
+        Glide.with(mContext).load(MyConstants.BASE_URL_IMAGE+hotInfoBean.getFigure()).into(viewHolder.iv_hot);
         viewHolder.tv_name.setText(hotInfoBean.getName());
         viewHolder.tv_price.setText("￥"+hotInfoBean.getCover_price());
         return convertView;

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.home.bean.ResultBean;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 
 import java.util.List;
 
@@ -43,7 +43,7 @@ public class SeckillRecyclerViewAdapter extends RecyclerView.Adapter<SeckillRecy
 
         //2.绑定数据
 
-        Glide.with(mContext).load(Constants.BASE_URL_IMAGE+listBean.getFigure()).into(holder.iv_figure);
+        Glide.with(mContext).load(MyConstants.BASE_URL_IMAGE+listBean.getFigure()).into(holder.iv_figure);
         holder.tv_cover_price.setText(listBean.getCover_price());
         holder.tv_origin_price.setText(listBean.getOrigin_price());
 

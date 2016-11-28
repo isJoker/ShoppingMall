@@ -13,7 +13,7 @@ import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.home.bean.GoodsBean;
 import com.wjc.jokerwanshoppingmall.shoppingcart.utils.CartProvider;
 import com.wjc.jokerwanshoppingmall.shoppingcart.view.NumberAddSubView;
-import com.wjc.jokerwanshoppingmall.utils.Constants;
+import com.wjc.jokerwanshoppingmall.utils.MyConstants;
 
 import java.util.Iterator;
 import java.util.List;
@@ -179,7 +179,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         public void setData(final GoodsBean goodsBean) {
             cbGov.setChecked(goodsBean.isChildSelected());
             Glide.with(mContext)
-                    .load(Constants.BASE_URL_IMAGE+goodsBean.getFigure())
+                    .load(MyConstants.BASE_URL_IMAGE+goodsBean.getFigure())
                     .into(ivGov);
             tvDescGov.setText(goodsBean.getName());
             tvPriceGov.setText("￥" + goodsBean.getCover_price());

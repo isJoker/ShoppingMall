@@ -1,11 +1,18 @@
 package com.wjc.jokerwanshoppingmall.utils;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Created by shkstart on 2016/9/24 0024.
@@ -42,6 +49,55 @@ public class BitmapUtils {
 
         Bitmap bitmap = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
         return bitmap;
+
+    }
+
+
+    /**
+     * 以最省内存的方式读取图片
+     */
+    public static Bitmap readBitmap(final String picName){
+        try{
+            FileInputStream stream = new FileInputStream(new File("/sdcard/bitmapfiles/", picName + ".jpg"));
+            Bitmap bitmap = BitmapFactory.decodeStream(stream);
+            return bitmap;
+        } catch (OutOfMemoryError e) {
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     *保存bitmap到本地
+     * @param bitmap
+     * @param picName
+     */
+    public static void saveBitmap(String picName,Bitmap bitmap) {
+
+        File appDir = new File("/sdcard/bitmapfiles/");
+
+        if (!appDir.exists()) {
+            appDir.mkdir();
+        }
+
+        File f = new File("/sdcard/bitmapfiles/", picName + ".jpg");
+        if (f.exists()) {
+            f.delete();
+        }
+
+        try {
+            FileOutputStream out = new FileOutputStream(f);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+            out.flush();
+            out.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
     }
 

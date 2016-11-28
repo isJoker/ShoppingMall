@@ -5,7 +5,13 @@ package com.wjc.jokerwanshoppingmall.utils;
  * WeChat：wjc398556712
  * Function：
  */
-public class Constants {
+public class MyConstants {
+
+    public static final String USER_PASSWORD = "user_password";//用户密码
+
+    public static final String USER_NAME = "user_name";//用户名
+
+    public static final String IMAGE_URL = "image_url";//用户头像的url
 
     //    public static String BASE_URL_JSON = "http://192.168.51.104:8080/atguigu";
     public static final String BASE = "http://192.168.191.1:8080";
@@ -16,7 +22,7 @@ public class Constants {
     // 请求图片基本URL
     public static final String BASE_URL_IMAGE = BASE+"/atguigu/img";
 
-    //http://192.168.191.1:8080/atguigu/json/HOT_POST_URL.json
+    //http://192.168.191.1:8080/atguigu/img/1464245798979.jpg
 
     //主页路径
     public static final String HOME_URL = BASE_URL_JSON + "HOME_URL.json";
