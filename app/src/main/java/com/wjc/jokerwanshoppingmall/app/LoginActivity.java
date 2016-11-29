@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
@@ -34,22 +35,24 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.wjc.jokerwanshoppingmall.R.id.ib_login_visible;
+
 
 public class LoginActivity extends Activity {
 
 
     @Bind(R.id.ib_login_back)//返回键
-            ImageButton ibLoginBack;
+    ImageButton ibLoginBack;
     @Bind(R.id.iv_avator)//登录头像
-            ImageView ivAvator;
+    ImageView ivAvator;
     @Bind(R.id.et_login_phone)//登录账号
-            EditText etLoginPhone;
+    EditText etLoginPhone;
     @Bind(R.id.et_login_pwd)//登录密码
-            EditText etLoginPwd;
-    @Bind(R.id.ib_login_visible)
+    EditText etLoginPwd;
+    @Bind(ib_login_visible)//密码是否可见
     ImageButton ibLoginVisible;
     @Bind(R.id.btn_login)//登录键
-            Button btnLogin;
+    Button btnLogin;
     @Bind(R.id.tv_login_register)
     TextView tvLoginRegister;
     @Bind(R.id.tv_login_forget_pwd)
@@ -66,9 +69,9 @@ public class LoginActivity extends Activity {
     private UserInfo mInfo = null;
 
     //用户头像
-    private static Bitmap avator = null;
     private String nickname = "";//昵称或登录账号
     private String imgurl = "";//用户头像的url
+    private int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +95,7 @@ public class LoginActivity extends Activity {
         if (!TextUtils.isEmpty(userPassword)) {
             etLoginPwd.setText(userPassword);
         }
-        if(!TextUtils.isEmpty(imageAvatorUrl)) {
+        if (!TextUtils.isEmpty(imageAvatorUrl)) {
             setAvator(imageAvatorUrl);
         }
 
@@ -109,6 +112,25 @@ public class LoginActivity extends Activity {
     @OnClick(R.id.ib_login_back)
     void ib_login_back() {
         finish();
+    }
+
+    @OnClick(R.id.btn_login)
+    void btn_login() {
+        //去服务器登录
+        finish();
+    }
+
+    @OnClick(ib_login_visible)
+    void ib_login_visible() {
+        count++;
+        if (count % 2 == 0) {
+            ibLoginVisible.setBackgroundResource(R.drawable.new_password_drawable_invisible);
+            etLoginPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        } else {
+            ibLoginVisible.setBackgroundResource(R.drawable.new_password_drawable_visible);
+            etLoginPwd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+
+        }
     }
 
     IUiListener loginListener = new BaseUiListener() {
@@ -178,13 +200,13 @@ public class LoginActivity extends Activity {
                 PreferenceUtils.putString(LoginActivity.this,
                         MyConstants.USER_PASSWORD, "123456");
                 PreferenceUtils.putString(LoginActivity.this,
-                        MyConstants.IMAGE_URL,imgurl);
+                        MyConstants.IMAGE_URL, imgurl);
 
                 //设置返回的结果
                 Intent intent = getIntent();
-                intent.putExtra("screen_name",nickname);
-                intent.putExtra("profile_image_url",imgurl);
-                setResult(RESULT_OK,intent);
+                intent.putExtra("screen_name", nickname);
+                intent.putExtra("profile_image_url", imgurl);
+                setResult(RESULT_OK, intent);
 
                 LogUtil.e("nickname=========" + nickname);
 

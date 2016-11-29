@@ -27,6 +27,15 @@
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
+
+    <!--极光推送需要,已删除重复的权限-->
+    <permission
+        android:name="com.wjc.jokerwanshoppingmall.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+    <!-- Required  一些系统要求的权限，如访问网络等-->
+    <uses-permission android:name="com.wjc.jokerwanshoppingmall.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+
     <application
         android:name=".app.MyAppliction"
         android:allowBackup="true"
@@ -124,6 +133,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
 
     </application>
 
