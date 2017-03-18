@@ -74,6 +74,7 @@ dependencies {
     compile files('libs/ShareSDK-Yixin-Moments-2.7.10.jar')
     compile files('libs/MobTools-2016.1107.1809.jar')
     compile files('libs/MobCommons-2016.1107.1809.jar')
-
-    compile 'cn.jiguang:jpush:2.1.8'  // 此处以SDK 2.1.8版本为例
+    compile 'cn.jiguang:jpush:2.1.8'
+    // 此处以SDK 2.1.8版本为例
+    compile 'com.android.support:design:25.1.0'
 }

@@ -14,7 +14,8 @@ public class MyConstants {
     public static final String IMAGE_URL = "image_url";//用户头像的url
 
     //    public static String BASE_URL_JSON = "http://192.168.51.104:8080/atguigu";
-    public static final String BASE = "http://192.168.191.1:8080";
+    public static final String BASE = "http://192.168.0.1:8080";
+//    public static final String BASE = "http://10.0.2.2:8080";
 
     // 请求Json数据基本URL
     public static final String BASE_URL_JSON = BASE+"/atguigu/json/";

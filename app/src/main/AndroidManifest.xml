@@ -53,8 +53,9 @@
         <activity
             android:name=".app.MainActivity"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.PageIndicatorDefaults"
+
             android:windowSoftInputMode="adjustPan" />
+        <!--android:theme="@style/Theme.PageIndicatorDefaults"-->
 
         <activity android:name=".app.GoodsInfoActivity" />
 

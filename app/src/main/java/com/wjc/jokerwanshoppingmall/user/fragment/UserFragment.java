@@ -2,21 +2,17 @@ package com.wjc.jokerwanshoppingmall.user.fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.text.TextUtils;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 import com.wjc.jokerwanshoppingmall.R;
 import com.wjc.jokerwanshoppingmall.app.LoginActivity;
 import com.wjc.jokerwanshoppingmall.base.BaseFragment;
-import com.wjc.jokerwanshoppingmall.user.activity.MessageCenterActivity;
 import com.wjc.jokerwanshoppingmall.utils.BitmapUtils;
 import com.wjc.jokerwanshoppingmall.utils.LogUtil;
 import com.wjc.jokerwanshoppingmall.utils.MyConstants;
@@ -67,14 +63,16 @@ public class UserFragment extends BaseFragment {
     TextView tvUserCallcenter;
     @Bind(R.id.tv_user_feedback)
     TextView tvUserFeedback;
-    @Bind(R.id.scrollview)
-    ScrollView scrollview;
-    @Bind(R.id.tv_usercenter)
-    TextView tvUsercenter;
-    @Bind(R.id.ib_user_setting)
-    ImageButton ibUserSetting;
-    @Bind(R.id.ib_user_message)
-    ImageButton ibUserMessage;
+//    @Bind(R.id.scrollview)
+//    ScrollView scrollview;
+//    @Bind(R.id.tv_usercenter)
+//    TextView tvUsercenter;
+//    @Bind(R.id.ib_user_setting)
+//    ImageButton ibUserSetting;
+//    @Bind(R.id.ib_user_message)
+//    ImageButton ibUserMessage;
+    @Bind(R.id.collapsing_toolbar)
+    CollapsingToolbarLayout collapsing_toolbar;
 
     @Override
     public int getViewLayoutId() {
@@ -93,24 +91,26 @@ public class UserFragment extends BaseFragment {
             tvUsername.setText(userName);
         }
 
-        tvUsercenter.setAlpha(0);
+        collapsing_toolbar.setTitle("个人中心");
 
-        scrollview.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int[] location = new int[2];
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        break;
-                    case MotionEvent.ACTION_MOVE://下滑是正，上滑是负
-                        ibUserIconAvator.getLocationOnScreen(location);//初始状态为125,即最大值是125，全部显示不透明是（40？）
-                        float i = (location[1] - 40) / 85f;
-                        tvUsercenter.setAlpha(1 - i);
-                        break;
-                }
-                return false;
-            }
-        });
+//        tvUsercenter.setAlpha(0);
+
+//        scrollview.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                int[] location = new int[2];
+//                switch (event.getAction()) {
+//                    case MotionEvent.ACTION_DOWN:
+//                        break;
+//                    case MotionEvent.ACTION_MOVE://下滑是正，上滑是负
+//                        ibUserIconAvator.getLocationOnScreen(location);//初始状态为125,即最大值是125，全部显示不透明是（40？）
+//                        float i = (location[1] - 40) / 85f;
+////                        tvUsercenter.setAlpha(1 - i);
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
     }
 
     /**
@@ -138,18 +138,19 @@ public class UserFragment extends BaseFragment {
         }
     }
 
-    @OnClick({R.id.ib_user_icon_avator,R.id.ib_user_setting,R.id.ib_user_message})
+//    @OnClick({R.id.ib_user_icon_avator,R.id.ib_user_setting,R.id.ib_user_message})
+@OnClick(R.id.ib_user_icon_avator)
     public void onClick(View v){
         if (v == ibUserIconAvator) {
             Intent intent = new Intent(mContext, LoginActivity.class);
             startActivityForResult(intent,0);
 
-        } else if (v == ibUserSetting) {
+        } /*else if (v == ibUserSetting) {
             Toast.makeText(mContext, "设置", Toast.LENGTH_SHORT).show();
         } else if (v == ibUserMessage) {
             Intent intent = new Intent(mContext, MessageCenterActivity.class);
             startActivity(intent);
-        }
+        }*/
     }
 
     @Override
